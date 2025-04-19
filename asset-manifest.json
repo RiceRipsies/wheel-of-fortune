@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wheel-of-fortune/static/css/main.c07a2feb.css",
+    "main.js": "/wheel-of-fortune/static/js/main.0f8f03a6.js",
+    "static/js/453.6f35f633.chunk.js": "/wheel-of-fortune/static/js/453.6f35f633.chunk.js",
+    "index.html": "/wheel-of-fortune/index.html",
+    "main.c07a2feb.css.map": "/wheel-of-fortune/static/css/main.c07a2feb.css.map",
+    "main.0f8f03a6.js.map": "/wheel-of-fortune/static/js/main.0f8f03a6.js.map",
+    "453.6f35f633.chunk.js.map": "/wheel-of-fortune/static/js/453.6f35f633.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c07a2feb.css",
+    "static/js/main.0f8f03a6.js"
+  ]
+}
