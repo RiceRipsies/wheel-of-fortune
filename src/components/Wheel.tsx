@@ -10,9 +10,13 @@ interface WheelProps {
 
 const WheelContainer = styled.div`
   position: relative;
-  width: min(45vh, 400px);
-  height: min(45vh, 400px);
+  width: min(80vw, 45vh, 400px);
+  height: min(80vw, 45vh, 400px);
   margin: 0 auto;
+  @media (max-width: 768px) {
+    width: min(90vw, 300px);
+    height: min(90vw, 300px);
+  }
 `;
 
 const WheelSVG = styled.div<{ rotation: number }>`
@@ -33,6 +37,11 @@ const Pointer = styled.div`
   border-right: min(2vh, 20px) solid transparent;
   border-top: min(4vh, 40px) solid #ff0000;
   z-index: 2;
+  @media (max-width: 768px) {
+    border-left: min(3vw, 15px) solid transparent;
+    border-right: min(3vw, 15px) solid transparent;
+    border-top: min(6vw, 30px) solid #ff0000;
+  }
 `;
 
 const SpinButton = styled.button`
@@ -40,12 +49,33 @@ const SpinButton = styled.button`
   bottom: min(-8vh, -60px);
   left: 50%;
   transform: translateX(-50%);
-  padding: 1vh 2vw;
+  padding: 1.5vh 3vw;
   font-size: min(2.5vh, 18px);
   min-width: min(15vh, 120px);
   cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover:not(:disabled) {
+    background-color: #45a049;
+    transform: translateX(-50%) scale(1.05);
+  }
+  
   &:disabled {
     cursor: not-allowed;
+    background-color: #cccccc;
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: 768px) {
+    padding: 2vh 4vw;
+    font-size: min(3vw, 16px);
+    min-width: min(20vw, 100px);
+    bottom: min(-10vw, -40px);
   }
 `;
 

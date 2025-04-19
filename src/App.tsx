@@ -9,19 +9,26 @@ import { WHEEL_SEGMENTS } from './data/wheelConfig';
 
 const AppContainer = styled.div`
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 1vh;
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: white;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
+  @media (max-width: 768px) {
+    padding: 1vh 0.5vh;
+  }
 `;
 
 const Title = styled.h1`
   font-size: min(4vh, 2.5rem);
   margin: 1vh 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  @media (max-width: 768px) {
+    font-size: min(5vw, 1.8rem);
+    margin: 0.5vh 0;
+  }
 `;
 
 const GameContainer = styled.div`
@@ -35,6 +42,13 @@ const GameContainer = styled.div`
   width: 100%;
   max-width: 1400px;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    padding: 0 1vw;
+    gap: 1vh;
+  }
 `;
 
 const WheelSection = styled.div`
@@ -43,6 +57,12 @@ const WheelSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 1vh 0;
+  }
 `;
 
 type MessageType = 'success' | 'error' | 'info';
@@ -58,6 +78,13 @@ const Message = styled.div<{ type: MessageType }>`
     'rgba(255, 255, 255, 0.2)'
   };
   font-size: min(2.5vh, 1.2rem);
+  margin: 0 1vw;
+  
+  @media (max-width: 768px) {
+    font-size: min(3vw, 1rem);
+    padding: 0.8vh;
+    margin: 0 2vw;
+  }
 `;
 
 const RightSection = styled.div`
@@ -67,11 +94,23 @@ const RightSection = styled.div`
   flex-direction: column;
   gap: 2vh;
   height: 100%;
+  
+  @media (max-width: 768px) {
+    grid-column: 1;
+    grid-row: 3;
+    gap: 1vh;
+  }
 `;
 
 const ControlsSection = styled.div`
   grid-column: 1 / -1;
   grid-row: 3;
+  padding: 1vh 0;
+  
+  @media (max-width: 768px) {
+    grid-row: 4;
+    padding: 0.5vh 0;
+  }
 `;
 
 interface GameMessage {
