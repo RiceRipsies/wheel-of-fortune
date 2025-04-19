@@ -27,6 +27,7 @@ export const PUZZLES: Puzzle[] = [
   { phrase: "ARMAS STENROOSIN MUNKIT", category: "Aitoo" },
   { phrase: "MAUKKA JA MEHUKATTITONKAT", category: "Aitoo" },
   { phrase: "KOPSONIN MAKKARAPERUNAT", category: "Aitoo" },
+  { phrase: "JUHON PIKKU HÖPÖNASSUT", category: "Aitoo" },
 
   // Klassikot ja sanonnat
   { phrase: "EI SAA PEITTÄÄ", category: "Klassikko" },
