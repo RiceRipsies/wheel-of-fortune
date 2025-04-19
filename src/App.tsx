@@ -282,7 +282,7 @@ function App() {
   };
 
   const isVowel = (letter: string): boolean => {
-    return ['a', 'e', 'i', 'o', 'u'].includes(letter.toLowerCase());
+    return ['a', 'e', 'i', 'o', 'u', 'y', 'ä', 'ö', 'å'].includes(letter.toLowerCase());
   };
 
   const countLetterOccurrences = (letter: string, puzzle: { phrase: string }): number => {

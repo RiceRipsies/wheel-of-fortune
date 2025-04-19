@@ -33,13 +33,20 @@ const Letter = styled.div<{ isRevealed: boolean; isSpace: boolean }>`
   background: ${props => props.isSpace ? 'transparent' : '#28a745'};
   border: ${props => props.isSpace ? 'none' : '2px solid #fff'};
   color: white;
-  display: flex;
+  display: ${props => props.isSpace ? 'none' : 'flex'};
   align-items: center;
   justify-content: center;
   font-size: min(3vh, 24px);
   font-weight: bold;
   text-transform: uppercase;
-  visibility: ${props => props.isSpace ? 'hidden' : 'visible'};
+`;
+
+const Space = styled.div`
+  width: min(5vh, 40px);
+  height: min(5vh, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Category = styled.div`
@@ -57,7 +64,7 @@ interface PuzzleBoardProps {
 }
 
 const PuzzleBoard: React.FC<PuzzleBoardProps> = ({ puzzle, category, revealedLetters }) => {
-  // Split puzzle into words
+  // Split puzzle into words and handle spaces
   const words = puzzle.split(' ');
 
   return (
@@ -65,17 +72,20 @@ const PuzzleBoard: React.FC<PuzzleBoardProps> = ({ puzzle, category, revealedLet
       <Category>{category}</Category>
       <PuzzleGrid>
         {words.map((word, wordIndex) => (
-          <WordContainer key={wordIndex}>
-            {word.split('').map((letter, letterIndex) => (
-              <Letter 
-                key={`${wordIndex}-${letterIndex}`}
-                isRevealed={revealedLetters.has(letter.toLowerCase())}
-                isSpace={false}
-              >
-                {revealedLetters.has(letter.toLowerCase()) ? letter : ''}
-              </Letter>
-            ))}
-          </WordContainer>
+          <React.Fragment key={wordIndex}>
+            <WordContainer>
+              {word.split('').map((letter, letterIndex) => (
+                <Letter 
+                  key={`${wordIndex}-${letterIndex}`}
+                  isRevealed={revealedLetters.has(letter.toLowerCase())}
+                  isSpace={false}
+                >
+                  {revealedLetters.has(letter.toLowerCase()) ? letter : ''}
+                </Letter>
+              ))}
+            </WordContainer>
+            {wordIndex < words.length - 1 && <Space />}
+          </React.Fragment>
         ))}
       </PuzzleGrid>
     </BoardContainer>
